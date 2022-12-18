@@ -40,10 +40,7 @@ class _CleanState extends State<Clean> {
               children: [
                 Text(
                   "Improve your smartphone:",
-                  style: TextStyle(
-                      fontSize: 36,
-                      fontFamily: "Montserrat",
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
                   height: 32,
@@ -74,7 +71,6 @@ class _CleanState extends State<Clean> {
                                   labels[index],
                                   style: TextStyle(
                                       fontSize: 24,
-                                      fontFamily: "Montserrat",
                                       fontWeight: FontWeight.w500),
                                 ),
                                 SizedBox(

@@ -3,19 +3,25 @@ import 'package:projeto_webdesign/ProjetoWebDesign.dart';
 
 class CustomCard extends StatelessWidget {
   Widget? child;
-  CustomCard({this.child = null});
+  VoidCallback onTap;
+  CustomCard({this.child = null, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: child,
-      margin: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-          color: appTheme.isDarkTheme ? darkTheme.cardColor : theme.cardColor,
-          border: appTheme.isDarkTheme
-              ? Border.all(color: Colors.white24)
-              : Border.all(color: Colors.black26),
-          borderRadius: BorderRadius.circular(32)),
+    return InkWell(
+      customBorder: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(32),
+      ),
+      onTap: onTap,
+      child: Ink(
+        child: child,
+        decoration: BoxDecoration(
+            color: appTheme.isDarkTheme ? darkTheme.cardColor : theme.cardColor,
+            border: appTheme.isDarkTheme
+                ? Border.all(color: Colors.white24)
+                : Border.all(color: Colors.black26),
+            borderRadius: BorderRadius.circular(32)),
+      ),
     );
   }
 }

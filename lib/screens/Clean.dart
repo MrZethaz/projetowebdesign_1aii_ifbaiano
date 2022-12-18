@@ -45,53 +45,51 @@ class _CleanState extends State<Clean> {
                 SizedBox(
                   height: 32,
                 ),
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: BouncingScrollPhysics(),
-                  itemCount: 4,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      crossAxisCount: 2),
-                  itemBuilder: (context, index) {
-                    return CustomCard(
-                      onTap: () {
-                        ScaffoldMessenger.of(context).removeCurrentSnackBar();
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text(
-                                'Showing test function to button: ${labels[index]}')));
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.all(32),
-                        child: Center(
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  labels[index],
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                SizedBox(
-                                  height: 24,
-                                ),
-                                Image(
-                                  image: AssetImage(images[index]),
-                                  height: height * 0.1,
-                                  width: height * 0.1,
-                                ),
-                              ]),
-                        ),
-                      ),
-                    );
-                  },
-                )
+                _getGridButtons(height)
               ],
             ),
           ),
         ),
       )),
+    );
+  }
+
+  _getGridButtons(double height) {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: BouncingScrollPhysics(),
+      itemCount: 4,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          mainAxisSpacing: 16, crossAxisSpacing: 16, crossAxisCount: 2),
+      itemBuilder: (context, index) {
+        return CustomCard(
+          onTap: () {
+            Navigator.of(context).pushNamed("/blankoptimization");
+          },
+          child: Padding(
+            padding: EdgeInsets.all(32),
+            child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      labels[index],
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Image(
+                      image: AssetImage(images[index]),
+                      height: height * 0.1,
+                      width: height * 0.1,
+                    ),
+                  ]),
+            ),
+          ),
+        );
+      },
     );
   }
 }

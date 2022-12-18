@@ -7,7 +7,11 @@ class OptimizationBlankPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(child: Text("Blank page to represent optimization pages")),
+      body: Center(
+          child: Text(
+        "Blank page to represent optimization pages",
+        style: TextStyle(fontSize: 20),
+      )),
     );
   }
 }

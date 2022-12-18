@@ -7,7 +7,9 @@ class ConfigBlankPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(child: Text("Blank page to represent configuration pages")),
+      body: Center(
+          child: Text("Blank page to represent configuration pages",
+              style: TextStyle(fontSize: 20))),
     );
   }
 }

@@ -11,7 +11,124 @@ class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Account")),
+        body: Stack(
+      children: [
+        Positioned(
+          child: _getUserBanner(),
+          height: 450,
+          top: 0,
+          left: 0,
+          right: 0,
+        ),
+        Positioned(
+          child: _getUserConfigListView(),
+          top: 450,
+          height: MediaQuery.of(context).size.height - 450,
+          left: 0,
+          right: 0,
+        )
+      ],
+    ));
+  }
+
+  _getUserConfigListView() {
+    return ListView(
+      children: [
+        ExpansionTile(
+          title: Text(
+            "User configuration",
+            style: TextStyle(fontSize: 20),
+          ),
+          children: [
+            _getTile("Change name"),
+            _getTile("Change password"),
+            _getTile("Change profile picture"),
+            _getTile("2-step verification"),
+            _getTile("Delete account"),
+          ],
+        ),
+        ExpansionTile(
+          title: Text(
+            "Payment",
+            style: TextStyle(fontSize: 20),
+          ),
+          children: [
+            ExpansionTile(
+              title: Text(
+                "Adquirir plano",
+                style: TextStyle(fontSize: 20),
+              ),
+              children: [
+                _getTile("Plans"),
+                _getTile("Use serial code"),
+              ],
+            ),
+            _getTile("Payment methods"),
+            _getTile("Refund policies"),
+            _getTile("School plan"),
+          ],
+        ),
+        _getTile("More apps"),
+        _getTile("Invite friends"),
+        _getTile("Exit account")
+      ],
+    );
+  }
+
+  _getUserBanner() {
+    return Container(
+      padding: EdgeInsets.all(32),
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 200,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(300),
+                child: Container(
+                  color: Colors.white,
+                  child: Image(
+                      image: AssetImage("assets/images/user.png"),
+                      fit: BoxFit.fitHeight),
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text(
+                "Apollo Daniel",
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+              subtitle: Text(
+                "Gosta de limpar o celular!",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            )
+          ]),
+      decoration: BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(50),
+              bottomRight: Radius.circular(500))),
+    );
+  }
+
+  _getTile(String _name) {
+    return ListTile(
+      title: Row(children: [
+        Text(
+          _name,
+          style: TextStyle(fontSize: 20),
+        ),
+        Expanded(child: Container()),
+        Text(
+          ">",
+          style: TextStyle(fontSize: 24),
+        )
+      ]),
+      onTap: () {
+        Navigator.of(context).pushNamed("/blankconfig");
+      },
     );
   }
 }

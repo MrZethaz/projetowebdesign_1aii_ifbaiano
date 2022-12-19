@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -67,10 +68,15 @@ class _LoginPageState extends State<LoginPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                            "ou crie uma conta",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w500),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, "/blankregister");
+                            },
+                            child: Text(
+                              "ou crie uma conta",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w500),
+                            ),
                           )
                         ],
                       )
@@ -90,9 +96,18 @@ class _LoginPageState extends State<LoginPage> {
     ));
   }
 
+  _saveLoginAndGoHome() async {
+    SharedPreferences sh = await SharedPreferences.getInstance();
+    sh.setString("login", _emailController.text);
+    sh.setString("password", _passwordController.text);
+    Navigator.pushNamedAndRemoveUntil(context, "/home", (route) => false);
+  }
+
   _getLoginButton() {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        _saveLoginAndGoHome();
+      },
       child: Ink(
         height: 60,
         width: double.infinity,

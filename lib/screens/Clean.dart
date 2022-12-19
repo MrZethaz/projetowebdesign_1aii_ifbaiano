@@ -17,7 +17,7 @@ class _CleanState extends State<Clean> {
     "assets/images/tips.png"
   ];
 
-  List<String> labels = ["Clean", "Optimize", "Applications", "Tips"];
+  List<String> labels = ["Clean", "Optimize", "Apps", "Tips"];
   @override
   void initState() {
     // TODO: implement initState
@@ -40,7 +40,10 @@ class _CleanState extends State<Clean> {
               children: [
                 Text(
                   "Improve your smartphone:",
-                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      fontSize:
+                          36 * MediaQuery.of(context).devicePixelRatio / 3,
+                      fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
                   height: 32,
@@ -60,7 +63,10 @@ class _CleanState extends State<Clean> {
       physics: BouncingScrollPhysics(),
       itemCount: 4,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisSpacing: 16, crossAxisSpacing: 16, crossAxisCount: 2),
+          mainAxisSpacing: 16,
+          crossAxisSpacing: 16,
+          crossAxisCount: 2,
+          childAspectRatio: MediaQuery.of(context).size.aspectRatio * 1.3),
       itemBuilder: (context, index) {
         return CustomCard(
           onTap: () {
@@ -74,8 +80,10 @@ class _CleanState extends State<Clean> {
                   children: [
                     Text(
                       labels[index],
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                      style: TextStyle(
+                          fontSize:
+                              24 * MediaQuery.of(context).devicePixelRatio / 3,
+                          fontWeight: FontWeight.w500),
                     ),
                     SizedBox(
                       height: 24,

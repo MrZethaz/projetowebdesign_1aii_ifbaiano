@@ -3,6 +3,7 @@ import 'package:projeto_webdesign/screens/ConfigBlankPage.dart';
 import 'package:projeto_webdesign/screens/Home.dart';
 import 'package:projeto_webdesign/screens/Login.dart';
 import 'package:projeto_webdesign/screens/OptimizationBlankPage.dart';
+import 'package:projeto_webdesign/screens/RegisterBlankPage.dart';
 
 ThemeData theme = ThemeData.light()
     .copyWith(colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue));
@@ -68,7 +69,8 @@ class _ProjetoWebDesignState extends State<ProjetoWebDesign> {
         "/home": (context) => Home(),
         "/login": (context) => LoginPage(),
         "/blankconfig": (context) => ConfigBlankPage(),
-        "/blankoptimization": (context) => OptimizationBlankPage()
+        "/blankoptimization": (context) => OptimizationBlankPage(),
+        "/blankregister": (context) => RegisterBlankPage(),
       },
     );
   }

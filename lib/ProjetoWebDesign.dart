@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:projeto_webdesign/screens/ConfigBlankPage.dart';
 import 'package:projeto_webdesign/screens/Home.dart';

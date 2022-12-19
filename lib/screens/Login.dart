@@ -141,7 +141,8 @@ class _LoginPageState extends State<LoginPage> {
         decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
           contentPadding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-          suffixIcon: Icon(Icons.email),
+          suffixIcon: Padding(
+              padding: EdgeInsets.only(right: 16), child: Icon(Icons.email)),
           labelText: "Email",
         ),
       ),
@@ -155,8 +156,11 @@ class _LoginPageState extends State<LoginPage> {
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
           contentPadding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           suffixIcon: GestureDetector(
-              child: Icon(
-                  _obscuredPassword ? Icons.visibility_off : Icons.visibility),
+              child: Padding(
+                  padding: EdgeInsets.only(right: 16),
+                  child: Icon(_obscuredPassword
+                      ? Icons.visibility_off
+                      : Icons.visibility)),
               onTap: () {
                 setState(() {
                   _obscuredPassword = !_obscuredPassword;

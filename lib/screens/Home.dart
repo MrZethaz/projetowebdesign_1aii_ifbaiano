@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:projeto_webdesign/ProjetoWebDesign.dart';
 import 'package:projeto_webdesign/screens/Account.dart';
 import 'package:projeto_webdesign/screens/Clean.dart';
 import 'package:projeto_webdesign/screens/Config.dart';
@@ -19,6 +20,14 @@ class _HomeState extends State<Home> {
   List<Widget> telas = [Clean(), Account(), Config()];
   bool loggedIn = false;
 
+  late SharedPreferences sh;
+
+  _getSh() async {
+    sh = await SharedPreferences.getInstance();
+    bool isDark = sh.getBool("isDark") ?? true;
+    appTheme.setTheme(isDark: isDark);
+  }
+
   _onSelect(int index) {
     setState(() {
       _selectedIndex = index;
@@ -33,7 +42,14 @@ class _HomeState extends State<Home> {
   }
 
   @override
-  Widget build(BuildContext context) { 
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _getSh();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     getLogin().then((value) => {
           if (!loggedIn)
             {

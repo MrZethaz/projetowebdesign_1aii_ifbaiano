@@ -1,4 +1,3 @@
-import 'package:cool_dropdown/cool_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_webdesign/ProjetoWebDesign.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -104,15 +103,7 @@ class _ConfigState extends State<Config> {
               icon: const Icon(Icons.keyboard_arrow_down),
 
               // Array list of items
-              items: items.map((String items) {
-                return DropdownMenuItem(
-                  value: items,
-                  child: Text(
-                    items,
-                    style: TextStyle(color: Colors.white),
-                  ),
-                );
-              }).toList(),
+              items: _getDropdownMenuItem(),
               // After selecting the desired option,it will
               // change button value to selected value
               onChanged: (String? newValue) {
@@ -125,7 +116,6 @@ class _ConfigState extends State<Config> {
                 });
               },
               iconEnabledColor: Colors.blue,
-              dropdownColor: Colors.blue,
               borderRadius: BorderRadius.circular(32),
             ),
           ),
@@ -137,5 +127,20 @@ class _ConfigState extends State<Config> {
 
   setThemeSharedPreferences() async {
     sh.setBool("isDark", appTheme.isDarkTheme);
+  }
+
+  _getDropdownMenuItem() {
+    return items.map((String item) {
+      return DropdownMenuItem(
+        value: item,
+        child: Text(item,
+            style: TextStyle(
+                color: item == items[items.indexOf(dropdownvalue)]
+                    ? Colors.blue
+                    : item == items[0]
+                        ? Colors.white
+                        : Colors.black)),
+      );
+    }).toList();
   }
 }

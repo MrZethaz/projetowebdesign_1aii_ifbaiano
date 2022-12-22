@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_share_plus/flutter_share_plus.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Account extends StatefulWidget {
@@ -71,7 +73,13 @@ class _AccountState extends State<Account> {
           ],
         ),
         _getTile("More apps"),
-        _getTile("Invite friends"),
+        _getTile(
+          "Invite friends",
+          onTap: () {
+            Share.share(
+                "Clean App is the best cleaner for your's smartphone,\n\ncheck it now at: ( example url )");
+          },
+        ),
         _getTile(
           "Exit account",
           onTap: () {

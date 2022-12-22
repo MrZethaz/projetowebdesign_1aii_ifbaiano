@@ -10,7 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ThemeData theme = ThemeData.light().copyWith(
     colorScheme: ColorScheme.fromSwatch(
         primarySwatch: Colors.blue, accentColor: Colors.blue));
-ThemeData darkTheme = ThemeData.dark().copyWith(
+ThemeData themeDark = ThemeData.dark().copyWith(
     colorScheme: ColorScheme.fromSwatch(
         primarySwatch: Colors.blue, accentColor: Colors.blue));
 
@@ -75,7 +75,7 @@ class _ProjetoWebDesignState extends State<ProjetoWebDesign> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme,
-      darkTheme: darkTheme,
+      darkTheme: themeDark,
       themeMode: appTheme.themeMode,
       initialRoute: "/home",
       routes: {

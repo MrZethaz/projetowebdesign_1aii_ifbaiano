@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_webdesign/ProjetoWebDesign.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Config extends StatefulWidget {
   const Config({super.key});
@@ -15,6 +16,20 @@ class _ConfigState extends State<Config> {
 
   // List of items in our dropdown menu
   var items = ['Light', 'Dark'];
+
+  late SharedPreferences sh;
+
+  _getSh() async {
+    sh = await SharedPreferences.getInstance();
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _getSh();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,6 +110,7 @@ class _ConfigState extends State<Config> {
                 newValue == 'Dark'
                     ? appTheme.setTheme(isDark: true)
                     : appTheme.setTheme(isDark: false);
+                setThemeSharedPreferences();
               });
             },
           ),
@@ -102,5 +118,9 @@ class _ConfigState extends State<Config> {
         )
       ]),
     );
+  }
+
+  setThemeSharedPreferences() async {
+    sh.setBool("isDark", appTheme.isDarkTheme);
   }
 }

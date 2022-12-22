@@ -5,6 +5,7 @@ import 'package:projeto_webdesign/screens/Home.dart';
 import 'package:projeto_webdesign/screens/Login.dart';
 import 'package:projeto_webdesign/screens/OptimizationBlankPage.dart';
 import 'package:projeto_webdesign/screens/RegisterBlankPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 ThemeData theme = ThemeData.light()
     .copyWith(colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue));
@@ -21,6 +22,9 @@ class AppTheme with ChangeNotifier {
           ? ThemeMode.dark
           : ThemeMode.light;
 
+  AppTheme() {
+    getThemeFromSh();
+  }
   void toogleTheme() {
     isDarkTheme = !isDarkTheme;
     notifyListeners();
@@ -34,6 +38,12 @@ class AppTheme with ChangeNotifier {
   void setSystem({required bool system}) {
     this.system = system;
     notifyListeners();
+  }
+
+  getThemeFromSh() async {
+    SharedPreferences sh = await SharedPreferences.getInstance();
+    bool? dark = sh.getBool("isDark");
+    isDarkTheme = dark! ? true : false;
   }
 }
 

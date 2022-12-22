@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_webdesign/screens/AboutUs.dart';
 import 'package:projeto_webdesign/screens/ConfigBlankPage.dart';
 import 'package:projeto_webdesign/screens/Home.dart';
 import 'package:projeto_webdesign/screens/Login.dart';
@@ -71,6 +72,7 @@ class _ProjetoWebDesignState extends State<ProjetoWebDesign> {
         "/blankconfig": (context) => ConfigBlankPage(),
         "/blankoptimization": (context) => OptimizationBlankPage(),
         "/blankregister": (context) => RegisterBlankPage(),
+        "/aboutus": (context) => AboutUs()
       },
     );
   }

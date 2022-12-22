@@ -27,13 +27,18 @@ class _ConfigState extends State<Config> {
           _getTile("Quick clean"),
           _getTile("Auto-clean config"),
           _getTile("Optimization options"),
-          _getTile("About Us"),
+          _getTile(
+            "About Us",
+            onTap: () {
+              Navigator.pushNamed(context, "/aboutus");
+            },
+          ),
         ],
       )),
     );
   }
 
-  _getTile(String _name) {
+  _getTile(String _name, {VoidCallback? onTap}) {
     return ListTile(
       title: Row(children: [
         Text(
@@ -47,7 +52,9 @@ class _ConfigState extends State<Config> {
         )
       ]),
       onTap: () {
-        Navigator.of(context).pushNamed("/blankconfig");
+        onTap == null
+            ? Navigator.of(context).pushNamed("/blankconfig")
+            : onTap();
       },
     );
   }

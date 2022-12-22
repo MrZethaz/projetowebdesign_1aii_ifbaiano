@@ -7,10 +7,12 @@ import 'package:projeto_webdesign/screens/OptimizationBlankPage.dart';
 import 'package:projeto_webdesign/screens/RegisterBlankPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-ThemeData theme = ThemeData.light()
-    .copyWith(colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue));
-ThemeData darkTheme = ThemeData.dark()
-    .copyWith(colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue));
+ThemeData theme = ThemeData.light().copyWith(
+    colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: Colors.blue, accentColor: Colors.blue));
+ThemeData darkTheme = ThemeData.dark().copyWith(
+    colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: Colors.blue, accentColor: Colors.blue));
 
 class AppTheme with ChangeNotifier {
   bool isDarkTheme = false;

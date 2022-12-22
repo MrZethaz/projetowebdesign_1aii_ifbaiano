@@ -1,3 +1,4 @@
+import 'package:cool_dropdown/cool_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_webdesign/ProjetoWebDesign.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -34,21 +35,27 @@ class _ConfigState extends State<Config> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+          child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
           child: ListView(
-        physics: BouncingScrollPhysics(),
-        children: [
-          _getThemeConfig(),
-          _getTile("Privacy control"),
-          _getTile("Quick clean"),
-          _getTile("Auto-clean config"),
-          _getTile("Optimization options"),
-          _getTile(
-            "About Us",
-            onTap: () {
-              Navigator.pushNamed(context, "/aboutus");
-            },
+            shrinkWrap: true,
+            physics: BouncingScrollPhysics(),
+            children: [
+              _getThemeConfig(),
+              _getTile("Privacy control"),
+              _getTile("Quick clean"),
+              _getTile("Auto-clean config"),
+              _getTile("Optimization options"),
+              _getTile(
+                "About Us",
+                onTap: () {
+                  Navigator.pushNamed(context, "/aboutus");
+                },
+              ),
+            ],
           ),
-        ],
+        ),
       )),
     );
   }
@@ -86,33 +93,41 @@ class _ConfigState extends State<Config> {
         ),
         Expanded(child: Container()),
         Container(
-          child: DropdownButton(
-            style: Theme.of(context).textTheme.button!.copyWith(fontSize: 20),
-            isExpanded: true,
-            // Initial Value
-            value: dropdownvalue,
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton(
+              style: Theme.of(context).textTheme.button!.copyWith(fontSize: 20),
+              isExpanded: true,
+              // Initial Value
+              value: dropdownvalue,
 
-            // Down Arrow Icon
-            icon: const Icon(Icons.keyboard_arrow_down),
+              // Down Arrow Icon
+              icon: const Icon(Icons.keyboard_arrow_down),
 
-            // Array list of items
-            items: items.map((String items) {
-              return DropdownMenuItem(
-                value: items,
-                child: Text(items),
-              );
-            }).toList(),
-            // After selecting the desired option,it will
-            // change button value to selected value
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdownvalue = newValue!;
-                newValue == 'Dark'
-                    ? appTheme.setTheme(isDark: true)
-                    : appTheme.setTheme(isDark: false);
-                setThemeSharedPreferences();
-              });
-            },
+              // Array list of items
+              items: items.map((String items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(
+                    items,
+                    style: TextStyle(color: Colors.white),
+                  ),
+                );
+              }).toList(),
+              // After selecting the desired option,it will
+              // change button value to selected value
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownvalue = newValue!;
+                  newValue == 'Dark'
+                      ? appTheme.setTheme(isDark: true)
+                      : appTheme.setTheme(isDark: false);
+                  setThemeSharedPreferences();
+                });
+              },
+              iconEnabledColor: Colors.blue,
+              dropdownColor: Colors.blue,
+              borderRadius: BorderRadius.circular(32),
+            ),
           ),
           width: MediaQuery.of(context).size.width * 0.5,
         )

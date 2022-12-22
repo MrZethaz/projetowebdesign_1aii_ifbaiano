@@ -57,7 +57,7 @@ class _AccountState extends State<Account> {
           children: [
             ExpansionTile(
               title: Text(
-                "Adquirir plano",
+                "Get plan",
                 style: TextStyle(fontSize: 20),
               ),
               children: [
@@ -97,17 +97,24 @@ class _AccountState extends State<Account> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 200 * MediaQuery.of(context).devicePixelRatio / 4,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(300),
-                child: Container(
-                  color: Colors.white,
-                  child: Image(
-                      image: AssetImage("assets/images/user.png"),
-                      fit: BoxFit.fitHeight),
+                height: 200 * MediaQuery.of(context).devicePixelRatio / 4,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(300),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                    ),
+                    child: Image(
+                        image: AssetImage("assets/images/user.png"),
+                        fit: BoxFit.fitHeight),
+                  ),
                 ),
-              ),
-            ),
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                      blurRadius: 36,
+                      spreadRadius: 1,
+                      color: Colors.black.withOpacity(0.4))
+                ])),
             ListTile(
               title: Text(
                 "Apollo Daniel",
@@ -128,8 +135,14 @@ class _AccountState extends State<Account> {
       decoration: BoxDecoration(
           color: Colors.blue,
           borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(0),
-              bottomRight: Radius.circular(200))),
+              bottomLeft: Radius.circular(50),
+              bottomRight: Radius.circular(50)),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.blue.withOpacity(0.8),
+                blurRadius: 36,
+                spreadRadius: 1)
+          ]),
     );
   }
 

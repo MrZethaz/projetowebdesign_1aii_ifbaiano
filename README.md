@@ -20,13 +20,13 @@ O aplicativo foi desenvolvido por Apollo, sob a licensa Apache 2.0.
 ### Tela de login
 ![Tela de login](resources/screenshots/print_login.jpg)
 ### Área de limpeza
-![Tela de login](resources/screenshots/print_clean.jpg.jpg)
+![Tela de login](resources/screenshots/print_clean.jpg)
 ### Área de configuração
-![Tela de login](resources/screenshots/print_account.jpg.jpg)
+![Tela de login](resources/screenshots/print_account.jpg)
 ### Sobre nós (About Us)
-![Tela de login](resources/screenshots/print_aboutus.jpg.jpg)
+![Tela de login](resources/screenshots/print_aboutus.jpg)
 ### Tela de compartilhamento de aplicativo
-![Tela de login](resources/screenshots/print_share_app.jpg.jpg)
+![Tela de login](resources/screenshots/print_share_app.jpg)
 
 ## Como instalar
 

@@ -84,12 +84,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 Expanded(child: Container()),
-                SvgPicture.asset(
-                  "assets/images/wave01.svg",
-                  width: double.infinity,
-                  height: 150,
-                  fit: BoxFit.fill,
-                )
+                Container(
+                    width: double.infinity,
+                    height: 150,
+                    child: SvgPicture.asset(
+                      "assets/images/wave01.svg",
+                      width: double.infinity,
+                      height: 150,
+                      fit: BoxFit.fill,
+                    ))
               ],
             )),
       ]),

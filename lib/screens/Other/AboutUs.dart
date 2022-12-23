@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -14,16 +16,16 @@ class _AboutUsState extends State<AboutUs> {
   bool diamilliClicked = false;
   bool emersonClicked = false;
 
-  List<String> apiLink = [
-    "https://api.whatsapp.com/send?phone=+(number phone)&text=Olá!",
-    "https://api.whatsapp.com/send?phone=+(number phone)&text=Olá!",
-    "https://api.whatsapp.com/send?phone=+(number phone)&text=Olá!",
+  List<Uri> apiLink = [
+    Uri.parse("https://api.whatsapp.com/send?phone=5538998570760&text=Olá!"),
+    Uri.parse("https://api.whatsapp.com/send?phone=5538998570760&text=Olá!"),
+    Uri.parse("https://api.whatsapp.com/send?phone=5538998570760&text=Olá!"),
   ];
 
-  List<String> images = [
-    "assets/images/a.png",
-    "assets/images/d.png",
-    "assets/images/e.png"
+  List<Image> images = [
+    Image.asset("assets/images/a.png"),
+    Image.asset("assets/images/d.png"),
+    Image.asset("assets/images/e.png")
   ];
   List<String> labels = ["Apollo", "Participante 2", "Participante 3"];
   List<String> descriptions = [
@@ -36,43 +38,56 @@ class _AboutUsState extends State<AboutUs> {
   int currentClicked = 0;
 
   @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    precacheImage(AssetImage("assets/images/a.png"), context);
+    precacheImage(AssetImage("assets/images/d.png"), context);
+    precacheImage(AssetImage("assets/images/e.png"), context);
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Stack(children: [
-        Column(children: [
-          Expanded(flex: 1, child: Container()),
-          _getProfilePictureAndDescription(index: 0),
-          SizedBox(
-            height: 32,
+    return Material(
+      child: Stack(children: [
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _showDownTopDescription = false;
+            });
+          },
+          child: Scaffold(
+            appBar: AppBar(),
+            body: Column(children: [
+              Expanded(flex: 1, child: Container()),
+              _getProfilePictureAndDescription(index: 0),
+              SizedBox(
+                height: 32,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _getProfilePictureAndDescription(index: 1),
+                  _getProfilePictureAndDescription(index: 2)
+                ],
+              ),
+              Expanded(flex: 2, child: Container()),
+            ]),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _getProfilePictureAndDescription(index: 1),
-              _getProfilePictureAndDescription(index: 2)
-            ],
-          ),
-          Expanded(flex: 2, child: Container()),
-        ]),
+        ),
         AnimatedPositioned(
             child: GestureDetector(
-              onVerticalDragDown: (details) {
-                setState(() {
-                  _showDownTopDescription = false;
-                });
-              },
               child: _getDownTopDescription(),
             ),
             curve: Curves.easeOutQuint,
             bottom: _showDownTopDescription
                 ? currentClicked < 3
                     ? 0
-                    : -250
-                : -250,
+                    : -253
+                : -253,
             left: 0,
             right: 0,
-            duration: Duration(milliseconds: 1000)),
+            duration: Duration(milliseconds: 1000))
       ]),
     );
   }
@@ -101,7 +116,7 @@ class _AboutUsState extends State<AboutUs> {
             child: AnimatedContainer(
               duration: Duration(milliseconds: 1000),
               child: ClipRRect(
-                child: Image.asset(images[index]),
+                child: images[index],
                 borderRadius: BorderRadius.circular(32),
               ),
               height: MediaQuery.of(context).size.height / 5,
@@ -120,7 +135,7 @@ class _AboutUsState extends State<AboutUs> {
       child: Column(children: [
         ListTile(
             leading: ClipRRect(
-              child: Image.asset(images[currentClicked]),
+              child: images[currentClicked],
               borderRadius: BorderRadius.circular(32),
             ),
             title: Text(
@@ -143,19 +158,28 @@ class _AboutUsState extends State<AboutUs> {
               style: TextStyle(
                   fontSize: 18,
                   fontFamily: "Montserrat",
+                  color: Colors.white,
                   fontWeight: FontWeight.w700),
             )),
             width: double.infinity,
             decoration: BoxDecoration(
                 color: Colors.blue, borderRadius: BorderRadius.circular(32)),
           ),
-          onTap: () {
-            launchUrlString(apiLink[currentClicked]);
+          onTap: () async {
+            Uri url = apiLink[currentClicked];
+            bool can = await canLaunchUrl(url);
+            print(can);
+            if (can) {
+              await launchUrl(url,
+                  mode: LaunchMode.externalNonBrowserApplication);
+            }
           },
         )
       ]),
       decoration: BoxDecoration(
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.background,
+          border: Border.fromBorderSide(BorderSide(
+              color: Colors.blue, width: 3, strokeAlign: StrokeAlign.outside)),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(32), topRight: Radius.circular(32))),
     );

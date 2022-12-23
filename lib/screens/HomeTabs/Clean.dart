@@ -64,26 +64,28 @@ class _CleanState extends State<Clean> {
   }
 
   _getGridButtons(double height) {
-    return Wrap(
-      runSpacing: 16,
-      spacing: 16,
-      direction: Axis.vertical,
+    return Column(
       children: [
-        Wrap(
-          runSpacing: 16,
-          spacing: 16,
-          direction: Axis.horizontal,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _getEachCard(0),
+            SizedBox(
+              width: 8,
+            ),
             _getEachCard(1),
           ],
         ),
-        Wrap(
-          runSpacing: 16,
-          spacing: 16,
-          direction: Axis.horizontal,
+        SizedBox(
+          height: 8,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _getEachCard(2),
+            SizedBox(
+              width: 8,
+            ),
             _getEachCard(3),
           ],
         )
@@ -111,8 +113,8 @@ class _CleanState extends State<Clean> {
               height: 24,
             ),
             Container(
-              child: Image(
-                image: AssetImage(images[index]),
+              child: Image.asset(
+                images[index],
                 height: 70,
                 width: 70,
               ),

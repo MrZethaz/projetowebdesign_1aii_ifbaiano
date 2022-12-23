@@ -111,6 +111,7 @@ class _LoginPageState extends State<LoginPage> {
       onTap: () {
         _saveLoginAndGoHome();
       },
+      borderRadius: BorderRadius.circular(32),
       child: Ink(
         height: 60,
         width: double.infinity,

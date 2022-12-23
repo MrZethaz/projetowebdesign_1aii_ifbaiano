@@ -15,6 +15,8 @@ class CustomCard extends StatelessWidget {
       onTap: onTap,
       child: Ink(
         child: child,
+        height: 200,
+        width: 174,
         decoration: BoxDecoration(
             color: /*appTheme.isDarkTheme ? darkTheme.cardColor : theme.cardColor*/ Colors
                 .blue,

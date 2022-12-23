@@ -33,7 +33,7 @@ class _CleanState extends State<Clean> {
           child: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(32),
+            padding: EdgeInsets.all(16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,8 +41,7 @@ class _CleanState extends State<Clean> {
                 Text(
                   "Improve your smartphone:",
                   style: TextStyle(
-                      fontSize:
-                          36 * MediaQuery.of(context).devicePixelRatio / 3,
+                      fontSize: 36,
                       fontWeight: FontWeight.w500,
                       color: Colors.blue,
                       shadows: [
@@ -65,55 +64,68 @@ class _CleanState extends State<Clean> {
   }
 
   _getGridButtons(double height) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: BouncingScrollPhysics(),
-      itemCount: 4,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 16,
-          crossAxisCount: 2,
-          childAspectRatio: MediaQuery.of(context).size.aspectRatio * 1.6),
-      itemBuilder: (context, index) {
-        return CustomCard(
-          onTap: () {
-            Navigator.of(context).pushNamed("/blankoptimization");
-          },
-          child: Padding(
-            padding: EdgeInsets.all(32),
-            child: Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      labels[index],
-                      style: TextStyle(
-                          fontSize:
-                              24 * MediaQuery.of(context).devicePixelRatio / 3,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white),
-                    ),
-                    SizedBox(
-                      height: 24,
-                    ),
-                    Container(
-                      child: Image(
-                        image: AssetImage(images[index]),
-                        height: height * 0.1,
-                        width: height * 0.1,
-                      ),
-                      decoration: BoxDecoration(boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
-                            blurRadius: 32,
-                            spreadRadius: 2)
-                      ]),
-                    ),
-                  ]),
-            ),
-          ),
-        );
+    return Wrap(
+      runSpacing: 16,
+      spacing: 16,
+      direction: Axis.vertical,
+      children: [
+        Wrap(
+          runSpacing: 16,
+          spacing: 16,
+          direction: Axis.horizontal,
+          children: [
+            _getEachCard(0),
+            _getEachCard(1),
+          ],
+        ),
+        Wrap(
+          runSpacing: 16,
+          spacing: 16,
+          direction: Axis.horizontal,
+          children: [
+            _getEachCard(2),
+            _getEachCard(3),
+          ],
+        )
+      ],
+    );
+  }
+
+  _getEachCard(int index) {
+    return CustomCard(
+      onTap: () {
+        Navigator.of(context).pushNamed("/blankoptimization");
       },
+      child: Padding(
+        padding: EdgeInsets.all(32),
+        child: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(
+              labels[index],
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            Container(
+              child: Image(
+                image: AssetImage(images[index]),
+                height: 70,
+                width: 70,
+              ),
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 32,
+                    spreadRadius: 2)
+              ]),
+            ),
+          ]),
+        ),
+      ),
     );
   }
 }

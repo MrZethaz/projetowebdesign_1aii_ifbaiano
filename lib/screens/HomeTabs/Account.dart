@@ -17,16 +17,15 @@ class _AccountState extends State<Account> {
       children: [
         Positioned(
           child: _getUserBanner(),
-          height: MediaQuery.of(context).size.height / 2.8,
+          height: 300,
           top: 0,
           left: 0,
           right: 0,
         ),
         Positioned(
           child: _getUserConfigListView(),
-          top: MediaQuery.of(context).size.height / 2.8,
-          height: MediaQuery.of(context).size.height -
-              MediaQuery.of(context).size.height / 2.8,
+          top: 300,
+          height: MediaQuery.of(context).size.height - 300,
           left: 0,
           right: 0,
         )
@@ -105,7 +104,7 @@ class _AccountState extends State<Account> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-                height: 200 * MediaQuery.of(context).devicePixelRatio / 4,
+                height: 100,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(300),
                   child: Container(
@@ -124,21 +123,17 @@ class _AccountState extends State<Account> {
                       color: Colors.black.withOpacity(0.4))
                 ])),
             ListTile(
-              title: Text(
-                "Apollo Daniel",
-                style: TextStyle(
+                title: Text(
+                  "Apollo Daniel",
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
+                subtitle: Text(
+                  "Gosta de limpar o celular!",
+                  style: TextStyle(
                     color: Colors.white,
-                    fontSize:
-                        24 * MediaQuery.of(context).devicePixelRatio / 3.5),
-              ),
-              subtitle: Text(
-                "Gosta de limpar o celular!",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize:
-                        18 * MediaQuery.of(context).devicePixelRatio / 3.5),
-              ),
-            )
+                    fontSize: 20,
+                  ),
+                )),
           ]),
       decoration: BoxDecoration(
           color: Colors.blue,

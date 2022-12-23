@@ -7,6 +7,9 @@
         {
             "name": "projeto_webdesign",
             "request": "launch",
+            "args": [
+                "--no-sound-null-safety"
+            ],
             "type": "dart"
         },
         {

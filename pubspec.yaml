@@ -38,9 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   shared_preferences: 
   flutter_svg: ^1.1.6
-  share_plus: ^6.2.0
-  flutter_share_plus: 
-  path_provider: 
+  share_plus: ^6.2.0 
+  url_launcher: 
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:projeto_webdesign/ProjetoWebDesign.dart';
-import 'package:projeto_webdesign/screens/Account.dart';
-import 'package:projeto_webdesign/screens/Clean.dart';
-import 'package:projeto_webdesign/screens/Config.dart';
+import 'package:projeto_webdesign/screens/HomeTabs/Account.dart';
+import 'package:projeto_webdesign/screens/HomeTabs/Clean.dart';
+import 'package:projeto_webdesign/screens/HomeTabs/Config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {

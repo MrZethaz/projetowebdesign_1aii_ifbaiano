@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_webdesign/screens/AboutUs.dart';
-import 'package:projeto_webdesign/screens/ConfigBlankPage.dart';
-import 'package:projeto_webdesign/screens/Home.dart';
-import 'package:projeto_webdesign/screens/Login.dart';
-import 'package:projeto_webdesign/screens/OptimizationBlankPage.dart';
-import 'package:projeto_webdesign/screens/RegisterBlankPage.dart';
+import 'package:projeto_webdesign/screens/BlankSamplePages/ConfigBlankPage.dart';
+import 'package:projeto_webdesign/screens/BaseScreens/Home.dart';
+import 'package:projeto_webdesign/screens/BaseScreens/Login.dart';
+import 'package:projeto_webdesign/screens/BlankSamplePages/OptimizationBlankPage.dart';
+import 'package:projeto_webdesign/screens/BlankSamplePages/RegisterBlankPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 ThemeData theme = ThemeData.light().copyWith(

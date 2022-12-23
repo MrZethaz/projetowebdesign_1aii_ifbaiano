@@ -43,11 +43,14 @@ O aplicativo está disponível apenas para Android e está dividido em 3 versõe
 
 ### Passo a pass
 #### Passo 1
-![Passo 1](resources/screenshots/print_install_01.jpg)
+<img src="resources/screenshots/print_install_01.jpg" height="400">
+
 Clique em instalar quando executar o arquivo APK
 #### Passo 2
-![Passo 2](resources/screenshots/print_install_02.jpg.jpg)
+<img src="resources/screenshots/print_install_02.jpg" height="400">
+
 Clique em instalar assim mesmo e prossiga
 #### Passo 3
-![Passo 3](resources/screenshots/print_install_03.jpg)
+<img src="resources/screenshots/print_install_03.jpg" height="400">
+
 Aqui fica a seu critério, pode enviar ou não.

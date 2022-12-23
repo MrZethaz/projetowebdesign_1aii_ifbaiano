@@ -25,7 +25,7 @@ class _AboutUsState extends State<AboutUs> {
     "assets/images/d.png",
     "assets/images/e.png"
   ];
-  List<String> labels = ["Apollo", "Diamilli", "Emerson"];
+  List<String> labels = ["Apollo", "Diamili", "Emerson"];
   List<String> descriptions = [
     "Responsável pela programação e implementação do projeto!",
     "Responsável pela estruturação do aplicativo",

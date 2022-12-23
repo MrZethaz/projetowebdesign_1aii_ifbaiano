@@ -36,6 +36,7 @@ class _AccountState extends State<Account> {
 
   _getUserConfigListView() {
     return ListView(
+      physics: BouncingScrollPhysics(),
       children: [
         ExpansionTile(
           title: Text(

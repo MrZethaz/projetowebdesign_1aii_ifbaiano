@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.projeto_webdesign">
+    package="com.apollo.projeto_webdesign">
    <application
-        android:label="projeto_webdesign"
+        android:label="Projeto Webdesign by Apollo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

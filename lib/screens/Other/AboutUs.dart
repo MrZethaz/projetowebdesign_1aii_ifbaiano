@@ -15,9 +15,9 @@ class _AboutUsState extends State<AboutUs> {
   bool emersonClicked = false;
 
   List<String> apiLink = [
-    "https://api.whatsapp.com/send?phone=+5538998570760&text=Olá!",
-    "https://api.whatsapp.com/send?phone=+5577999943890&text=Olá!",
-    "https://api.whatsapp.com/send?phone=+5577999584728&text=Olá!",
+    "https://api.whatsapp.com/send?phone=+(number phone)&text=Olá!",
+    "https://api.whatsapp.com/send?phone=+(number phone)&text=Olá!",
+    "https://api.whatsapp.com/send?phone=+(number phone)&text=Olá!",
   ];
 
   List<String> images = [
@@ -25,7 +25,7 @@ class _AboutUsState extends State<AboutUs> {
     "assets/images/d.png",
     "assets/images/e.png"
   ];
-  List<String> labels = ["Apollo", "Diamili", "Emerson"];
+  List<String> labels = ["Apollo", "Participante 2", "Participante 3"];
   List<String> descriptions = [
     "Responsável pela programação e implementação do projeto!",
     "Responsável pela estruturação do aplicativo",

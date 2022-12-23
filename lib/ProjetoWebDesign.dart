@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_webdesign/screens/AboutUs.dart';
+import 'package:projeto_webdesign/screens/Other/AboutUs.dart';
 import 'package:projeto_webdesign/screens/BlankSamplePages/ConfigBlankPage.dart';
 import 'package:projeto_webdesign/screens/BaseScreens/Home.dart';
 import 'package:projeto_webdesign/screens/BaseScreens/Login.dart';

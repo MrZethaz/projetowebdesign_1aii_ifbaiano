@@ -8,11 +8,24 @@ import 'package:projeto_webdesign/screens/RegisterBlankPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 ThemeData theme = ThemeData.light().copyWith(
-    colorScheme: ColorScheme.fromSwatch(
-        primarySwatch: Colors.blue, accentColor: Colors.blue));
+  colorScheme: ColorScheme.light(
+      primary: Colors.blue,
+      primaryVariant: Colors.blue,
+      onTertiary: Colors.blue,
+      secondary: Colors.blue,
+      secondaryVariant: Colors.blue),
+);
 ThemeData themeDark = ThemeData.dark().copyWith(
-    colorScheme: ColorScheme.fromSwatch(
-        primarySwatch: Colors.blue, accentColor: Colors.blue));
+    colorScheme: ColorScheme.dark(
+        primary: Colors.blue,
+        primaryVariant: Colors.blue,
+        onTertiary: Colors.blue,
+        secondary: Colors.blue,
+        secondaryVariant: Colors.blue),
+    inputDecorationTheme: InputDecorationTheme(
+        disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(32),
+            borderSide: BorderSide(color: Colors.blue))));
 
 class AppTheme with ChangeNotifier {
   bool isDarkTheme = false;

@@ -139,7 +139,9 @@ class _LoginPageState extends State<LoginPage> {
       TextField(
         controller: _emailController,
         decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32),
+              borderSide: BorderSide(color: Colors.blue)),
           contentPadding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           suffixIcon: Padding(
               padding: EdgeInsets.only(right: 16), child: Icon(Icons.email)),
